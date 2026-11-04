@@ -1,0 +1,26 @@
+id = "filipk-jpg.dictate"
+name = "Dictate"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Push-to-talk speech-to-text for Herdr panes. Talk to your agents instead of typing. Runs Whisper locally."
+platforms = ["linux", "macos", "windows"]
+
+# One key starts recording, the same key stops it. The text is typed into the
+# pane you started in, without pressing Enter, so you can check it first.
+#
+# Two ids because Python is "python3" on macOS/Linux and "python" on Windows,
+# and action ids must be unique across platforms.
+
+[[actions]]
+id = "toggle"
+title = "Dictate: start / stop"
+contexts = ["pane"]
+platforms = ["linux", "macos"]
+command = ["python3", "dictate.py", "toggle"]
+
+[[actions]]
+id = "toggle-windows"
+title = "Dictate: start / stop"
+contexts = ["pane"]
+platforms = ["windows"]
+command = ["python", "dictate.py", "toggle"]
